@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MindGuardian AI</title>
+    <!-- Modern Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@500;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <!-- FontAwesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <div class="app-container">
+        <!-- Sidebar for tools and history -->
+        <aside class="sidebar">
+            <div class="brand">
+                <i class="fa-solid fa-leaf brand-logo"></i>
+                <h2>MindGuardian</h2>
+            </div>
+            
+            <div class="mood-tracker">
+                <h3><i class="fa-solid fa-chart-line"></i> Mood Tracker</h3>
+                <div id="trend-analysis" class="glass-panel">
+                    <p>Loading recent mood trends...</p>
+                </div>
+            </div>
+
+            <div class="suggestions-container">
+                <h3><i class="fa-solid fa-lightbulb"></i> Suggested Actions</h3>
+                <div id="suggestions-list" class="glass-panel">
+                    <p class="empty-state">Start chatting to get personalized suggestions.</p>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Chat Area -->
+        <main class="chat-area">
+            <header class="chat-header">
+                <div>
+                    <h2>AI Therapist Assistant</h2>
+                    <p class="status">Safe & Confidential Space</p>
+                </div>
+                <div class="emotion-badge" id="current-emotion">
+                    <i class="fa-solid fa-face-smile"></i> <span>Ready</span>
+                </div>
+            </header>
+            
+            <div class="chat-container">
+                <div class="chat-messages" id="chat-messages">
+                    <!-- Default Welcome Message -->
+                    <div class="message ai-message new-message">
+                        <div class="avatar"><i class="fa-solid fa-robot"></i></div>
+                        <div class="message-content">
+                            <p>Hello. I'm MindGuardian, your AI mental health companion. How are you feeling today?</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Input Area -->
+            <div class="input-container glass-panel-bottom">
+                <form id="chat-form">
+                    <input type="text" id="user-input" placeholder="Type your feelings here..." autocomplete="off" required>
+                    <button type="submit" id="send-button">
+                        <i class="fa-solid fa-paper-plane"></i>
+                    </button>
+                </form>
+            </div>
+        </main>
+    </div>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
