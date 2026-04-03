@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MindGuardian AI - Mental Health Support</title>
+    <!-- Modern Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <!-- FontAwesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Chart.js for visualizations -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <!-- Loading indicator -->
+    <div id="loading-overlay" class="loading-overlay">
+        <div class="loading-spinner">
+            <i class="fa-solid fa-spinner"></i>
+        </div>
+    </div>
+
+    <div class="app-container">
+        <!-- Sidebar for tools and insights -->
+        <aside class="sidebar">
+            <div class="brand">
+                <i class="fa-solid fa-brain brand-logo"></i>
+                <div>
+                    <h2>MindGuardian</h2>
+                    <span class="brand-subtitle">AI Wellness Companion</span>
+                </div>
+            </div>
+            
+            <!-- Quick Stats -->
+            <div class="quick-stats">
+                <div class="stat-item">
+                    <i class="fa-solid fa-message"></i>
+                    <div>
+                        <span class="stat-label">Messages</span>
+                        <span class="stat-value" id="message-count">0</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Mood Insights -->
+            <div class="mood-insights">
+                <h3><i class="fa-solid fa-chart-line"></i> Mood Insights</h3>
+                <div id="trends" class="glass-panel insights-panel">
+                    <canvas id="mood-chart" style="max-height: 200px; display: none;"></canvas>
+                    <p class="placeholder" id="trends-placeholder">Start a conversation to see your mood insights</p>
+                </div>
+                <div id="mood-summary" style="margin-top: 12px; font-size: 0.9em; color: #999;">
+                    <p id="mood-trend-text"></p>
+                </div>
+            </div>
+
+            <!-- Wellness Tips -->
+            <div class="wellness-tips">
+                <h3><i class="fa-solid fa-lightbulb"></i> Wellness Tips</h3>
+                <div id="suggestions-list" class="glass-panel tips-panel">
+                    <p class="placeholder">Personalized tips will appear here</p>
+                </div>
+            </div>
+
+            <!-- Sidebar Footer -->
+            <div class="sidebar-footer">
+                <button class="btn-link" id="clear-chat-btn">
+                    <i class="fa-solid fa-trash"></i> Clear Chat
+                </button>
+            </div>
+        </aside>
+
+        <!-- Main Chat Area -->
+        <main class="chat-area">
+            <header class="chat-header">
+                <div class="header-left">
+                    <h1>Wellness Chat</h1>
+                    <p class="status"><i class="fa-solid fa-lock"></i> Your conversations are private and secure</p>
+                </div>
+                <div class="header-right">
+                    <div class="emotion-badge" id="current-emotion">
+                        <i class="fa-solid fa-face-smile"></i>
+                        <span>Ready to listen</span>
+                    </div>
+                    <button class="btn-header-icon" id="settings-btn" title="Settings">
+                        <i class="fa-solid fa-gear"></i>
+                    </button>
+                </div>
+            </header>
+            
+            <!-- Chat Container -->
+            <div class="chat-container">
+                <div class="chat-messages" id="chat-messages">
+                    <!-- Welcome Message -->
+                    <div class="message ai-message">
+                        <div class="avatar">
+                            <i class="fa-solid fa-robot"></i>
+                        </div>
+                        <div class="message-wrapper">
+                            <div class="message-content">
+                                <p>👋 Hello! I'm MindGuardian, your AI wellness companion. I'm here to listen, support, and help you navigate your feelings.</p>
+                            </div>
+                            <span class="message-time">Just now</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Input Area -->
+            <div class="input-container">
+                <form id="chat-form" class="chat-form">
+                    <div class="input-wrapper">
+                        <input 
+                            type="text" 
+                            id="user-input" 
+                            class="user-input"
+                            placeholder="Share your thoughts and feelings... 💭" 
+                            autocomplete="off" 
+                            required
+                        >
+                        <button type="submit" id="send-button" class="send-button" title="Send message">
+                            <i class="fa-solid fa-paper-plane"></i>
+                        </button>
+                    </div>
+                    <div class="input-hints">
+                        <span class="hint-text">💡 Tip: Be honest and detailed for better support</span>
+                    </div>
+                </form>
+            </div>
+        </main>
+    </div>
+
+    <!-- Settings Modal (optional) -->
+    <div id="settings-modal" class="modal hidden">
+        <div class="modal-content">
+            <header class="modal-header">
+                <h2>Settings</h2>
+                <button class="btn-close" id="close-modal">
+                    <i class="fa-solid fa-times"></i>
+                </button>
+            </header>
+            <div class="modal-body">
+                <label class="setting-option">
+                    <input type="checkbox" id="sound-toggle" checked>
+                    <span>Sound notifications</span>
+                </label>
+                <label class="setting-option">
+                    <input type="checkbox" id="theme-toggle">
+                    <span>Dark mode (beta)</span>
+                </label>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
