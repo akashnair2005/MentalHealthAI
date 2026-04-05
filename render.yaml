@@ -10,11 +10,10 @@ services:
       - key: GEMINI_API_KEY
         scope: build,runtime
 
-  - type: static_site
+  - type: web
     name: frontend
+    env: static
     region: oregon
     plan: free
-    staticPublishPath: ./frontend
-    routes:
-      - path: /*
-        destination: /index.html
+    buildCommand: echo "Frontend ready"
+    startCommand: python -m http.server 3000 --directory frontend
