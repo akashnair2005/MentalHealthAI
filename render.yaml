@@ -2,18 +2,16 @@ services:
   - type: web
     name: backend
     env: python
-    region: oregon
     plan: free
     buildCommand: pip install -r requirements.txt
     startCommand: python -m uvicorn app:app --host 0.0.0.0 --port 8000
     envVars:
       - key: GEMINI_API_KEY
-        scope: build,runtime
+        value: changeme
 
   - type: web
     name: frontend
     env: static
-    region: oregon
     plan: free
     buildCommand: echo "Frontend ready"
     startCommand: python -m http.server 3000 --directory frontend
