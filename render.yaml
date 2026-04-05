@@ -1,20 +1,15 @@
-version: '3'
+# Render Blueprint for Mental Health AI
+
+# This blueprint defines a backend and frontend service
 
 services:
-  frontend:
-    image: frontend-image
-    ports:
-      - "80:80"
-    networks:
-      - frontend-network
+  - type: web
+    name: backend
+    env: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn main:app --host 0.0.0.0 --port 8000
 
-  backend:
-    image: backend-image
-    ports:
-      - "5000:5000"
-    networks:
-      - backend-network
-
-networks:
-  frontend-network:
-  backend-network:
+  - type: static
+    name: frontend
+    env: static
+    staticDir: build
