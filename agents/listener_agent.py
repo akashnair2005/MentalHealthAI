@@ -1,8 +1,11 @@
-import pickle
+import logging
 import re
 
-with open("models/emotion_model.pkl", "rb") as f:
-    model = pickle.load(f)
+from agents.model_loader import load_emotion_model
+
+logger = logging.getLogger(__name__)
+
+model = load_emotion_model()
 
 def clean_text(text):
     text = text.lower()
