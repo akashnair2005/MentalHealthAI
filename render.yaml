@@ -4,11 +4,11 @@ services:
     env: python
     plan: free
     buildCommand: pip install -r requirements.txt
-    startCommand: python -m uvicorn app:app --host 0.0.0.0 --port 8000
+    startCommand: python -m uvicorn app:app --host 0.0.0.0 --port $PORT
 
   - type: web
     name: web
-    env: python
+    env: static
     plan: free
+    staticPublishPath: ./frontend
     buildCommand: echo Frontend ready
-    startCommand: cd frontend && python -m http.server 8080
