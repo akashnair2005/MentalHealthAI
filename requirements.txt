@@ -4,3 +4,6 @@ scikit-learn
 pandas
 transformers
 torch
+pydantic
+google-generativeai
+python-dotenv
