@@ -23,7 +23,9 @@ document.addEventListener('DOMContentLoaded', () => {
     // ====================
     // Configuration
     // ====================
-    const API_BASE = 'http://localhost:8000';
+    const API_BASE = window.location.hostname === 'localhost' 
+  ? 'http://localhost:8000'
+  : 'https://backend.onrender.com';
     const USER_ID = "user_" + Math.random().toString(36).substr(2, 9);
     
     let messageCounter = 0;
